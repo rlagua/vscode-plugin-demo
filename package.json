@@ -1,0 +1,70 @@
+{
+  "name": "vscode-plugin-demo",
+  "displayName": "vscode-plugin-demo",
+  "description": "a plugin demo for vscode",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:Hello Shit",
+	"onCommand:myExtension.showTreeView"
+  ],
+	"main": "./extension.js",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "package-explorer",
+					"title": "Package Explorer",
+					"icon": "media/dep.svg"
+				}
+			]
+		},
+		"views": {
+			"package-explorer": [
+				{
+					"id": "myExtension.treeView",
+					"name": "Local TreeView",
+					"icon": "media/dep.svg",
+					"contextualTitle": "Package Explorer"
+				}
+			],
+			"explorer": [
+			]
+		},
+		"commands": [
+			{
+				"command": "extension.shit",
+				"title": "Hello Shit"
+			},
+			{
+				"command": "extension.waht",
+				"title": "Hello"
+			},
+			{
+			"command": "myExtension.showTreeView",
+			"title": "Show Tree View"
+			}
+		]
+	},
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "eslint": "^8.20.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4",
+    "@vscode/test-electron": "^2.1.5"
+  }
+}
